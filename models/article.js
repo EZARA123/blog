@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     body: DataTypes.STRING,
     image_url: DataTypes.STRING,
     author_id: DataTypes.INTEGER,
-    publish_on: DataTypes.DATE
+    published_on: DataTypes.DATE
 
   }, {
     sequelize,

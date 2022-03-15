@@ -21,3 +21,10 @@ module.exports.addArticle = async function(req, res){
     });
     res.redirect('/') //todo change the redirect to view all once made
 };
+
+module.exports.displayArticle = async function(req, res){
+    const article = await Article.findByPk(req.params.articleId, {
+        include: ['author']
+    });
+    res.render('articles/view', {article});
+};
