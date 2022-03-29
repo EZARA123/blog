@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const articleController = require('../controllers/articleController');
-const commentController = require('../controllers/commentController');
+const commentController = require('../controllers/comment.Controller');
+const userController = require('../controllers/userController');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect('/article');
@@ -18,4 +19,10 @@ router.post('/article/:articleId/edit', articleController.updateArticle);
 
 router.post('/article/:articleId/comment/create', commentController.createComment);
 router.post('/comment/:commentId/reply/create', commentController.addReply);
+
+
+router.post('/register', userController.register);
+
+router.get('/login', userController.renderLogin);
+router.post('/login', userController.login);
 module.exports = router;
